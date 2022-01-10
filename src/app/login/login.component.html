@@ -1,0 +1,15 @@
+<form #form1="ngForm" appCvalidation > 
+ <div class="container">
+        <div class="form-controler">
+            <label for="UserName">User Name:</label>
+            <input appAsyn appRestictname type="text" name="UserName" class="form-control" [(ngModel)]="UserName" #userName="ngModel" [ngClass]="{'is-invalid':userName.touched && userName.errors}" required>
+        </div>
+        <div class="text-danger" *ngIf="userName.touched && userName.errors" >this is error message {{userName}}</div>
+        <div class="form-controler">
+            <label for="currentPassword">Password:</label>
+            <input type="password" name="currentPassword" class="form-control" [(ngModel)]="currentPassword">
+            <span class="text-danger" *ngIf="form1.errors">{{form1.errors['ing']}}</span>
+        </div><br>
+        <button class="btn btn-warning" (click)="onSubmit()">LogIN</button>
+    </div>
+</form>
